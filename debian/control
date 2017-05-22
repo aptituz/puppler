@@ -1,0 +1,16 @@
+Source: puppler
+Section: ruby
+Priority: optional
+Maintainer: credativ GmbH <info@credativ.de>
+Uploaders: Patrick Schönfeld <patrick.schoenfeld@credativ.de>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~), git
+Standards-Version: 3.9.3
+XS-Ruby-Versions: all
+
+Package: puppler
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends}, ruby | ruby-interpreter, ruby-subprocess, ruby-thor, ruby-rainbow, r10k
+Description: tool to create git-bundles from puppet modules
+ puppler evaluates a Puppetfile and creates git-bundles from it

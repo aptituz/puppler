@@ -1,0 +1,6 @@
+DEFAULT_REF_CREDATIV = 'master'
+
+mod 'amavis',
+    :git => 'ssh://git@gitlab.credativ.com/mail-team/puppet-amavis.git',
+    :ref => DEFAULT_REF_CREDATIV
+

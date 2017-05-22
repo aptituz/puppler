@@ -1,0 +1,14 @@
+<%= summary %>
+
+<% if !added_tags_and_branches.empty? -%>
+* Add tags/branches: <%= added_tags_and_branches.join(", ") %>
+<% end -%>
+<% if !removed_tags_and_branches.empty? -%>
+* Remove tags/branches: <%= removed_tags_and_branches.join(", ") %>
+<% end -%>
+<% if !changed_tags_or_branches.empty? -%>
+* Change tags/branches:
+<% changed_tags_or_branches.each do |name, commit| -%>
+  * <%= name %> changed to <%= commit %>
+<% end -%>
+<% end -%>

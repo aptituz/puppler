@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - 'tmp/**/*'
+    - 'spec/**/*'
+
+Metrics/LineLength:
+  Max: 120
+
+# seems to be a pragmatic compromise for this kind of tool
+Metrics/MethodLength:
+  Max: 12

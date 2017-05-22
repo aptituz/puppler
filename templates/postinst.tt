@@ -1,0 +1,26 @@
+#!/bin/bash -e
+
+set -euo pipefail
+
+OLD_PWD=$PWD
+
+REPOSITORY_BASE_PATH="/var/lib/<%= config[:package_name] %>/repositories"
+
+mkdir -p /var/lib/
+for BUNDLE_PATH in /usr/share/puppet/<% config[:package_name] %>/*.bundle; do
+    BUNDLE=$( basename $BUNDLE_PATH .bundle )
+    REPO_PATH="$REPOSITORY_BASE_PATH/$BUNDLE"
+
+    # won't touch existing repository
+    git init --quiet --bare $REPO_PATH
+
+    TMPDIR=$( mktemp -d )
+    git clone --quiet --bare $BUNDLE_PATH $TMPDIR
+
+    pushd
+    git remote add target $REPO_PATH
+    git push target --all --force
+
+    popd
+    rm -rf $TMPDIR
+done

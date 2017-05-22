@@ -1,0 +1,11 @@
+Source: <%= config[:package_name] %>
+Section: misc
+Priority: optional
+Maintainer: credativ Gmbh <info@credativ.de>
+Build-Depends: debhelper (>=9), puppler
+Standards-Version: 3.9.8
+
+Package: <%= config[:package_name] %>
+Architecture: all
+Depends: ${misc:Depends}, git
+Description: git bundled puppet modules for usage with Puppetfile
