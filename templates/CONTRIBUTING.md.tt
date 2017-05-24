@@ -1,0 +1,33 @@
+This package is managed with puppler, the friendly puppet module (git) bundler.
+
+## Updating bundles
+To update the bundles in this package and prepare a release, run the following commands:
+
+```bash
+bundle install
+bundle exec puppler bundle
+```
+
+Executing this command will create a commit per module. After that you can use git-dch as usual
+to create a changelog.
+
+## Adding modules
+
+To add a module, just add it to the Puppetfile. The supported syntax matches what is supported by r10k,
+but note that we do not support non-git-modules.
+
+## Usage of the package
+
+Installing the resulting package results in some repositories being created in
+`/var/lib/<%= config[:package_name] %>/repositories`.
+
+If r10k is running on the same host as the packages, you can refer to this repositories by file-uris.
+
+Otherwise configuring git-smart-http (https://git-scm.com/book/gr/v2/Git-on-the-Server-Smart-HTTP) and
+symlinking the directory to your git root will make it available via http, e.g.
+
+```bash
+ln -s /var/lib/<%= config[:package_name] %>/repositories /shared/git/puppet-modules
+```
+
+It's recommended to refer to specific version tags instead of master or next branch.

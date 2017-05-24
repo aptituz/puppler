@@ -10,6 +10,7 @@ require 'puppler/git/refs'
 require 'puppler/puppet_module'
 require 'puppler/command'
 
+require 'pathname'
 # Puppler application class - mainly storing configuration data for runtime use
 module Puppler
   class << self

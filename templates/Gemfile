@@ -1,0 +1,5 @@
+source "http://rubygems.org"
+
+gem "puppler",
+    :git => "git@gitlab.credativ.com:mail-team/puppler.git",
+    :branch => 'master'

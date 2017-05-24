@@ -3,7 +3,6 @@
 puppler is a tool aimed at creating git-bundles of puppet module repositories and ship
 them as a Debian package.
 
-
 ## How it works
 
 puppler is currently based on the following assumptions:
@@ -17,18 +16,10 @@ When puppler is called with the install action, it will run r10k to process the 
 By default it will install it to the `modules`-directory. Note that r10k will remove everything in
 that folder unless managed by r10k itself.
 
-After that, when puppler is called with the `bundle` action, puppler will do the following with each module
-in the modules directory:
-
-1. Move the module from the modules directory to a puppler working directory
-2. Do a shallow clone of all tags and branches in that repo
-3. Create a bare repository as target repository
-4. Push all shallow clones to the before mentioned bare repository
-5. Create a bundle with `git bundle`
+After that, when puppler is called with the `bundle` action, puppler will create a bundle from each module,
+determine changes to a pre-existing module and commit each module one by one.
 
 If a bundle already exists, it will update it will overwrite it with the *current* contents of the module.
-puppler ensures that the shallow clones have stable commits, so that it's possible to know what changed between
-two subsequent runs.
 
 ## Usage
 

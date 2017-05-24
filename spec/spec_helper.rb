@@ -14,6 +14,7 @@ RSpec.configure do |config|
   original_pwd = Dir.pwd
 
   config.before :all do
+    @all_output = String.new
     reset!
     FileUtils.mkpath(workdir)
 
