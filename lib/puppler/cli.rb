@@ -52,6 +52,9 @@ module Puppler
         destination_file = format(destination_pattern, options[:debian_directory])
         template(File.join('templates', template), destination_file, config)
       end
+      template(File.join('templates', 'CONTRIBUTING.md'), 'CONTRIBUTING.md', config)
+      template(File.join('templates', 'Gemfile'), 'Gemfile', config)
+
       create_file("#{config[:debian_directory]}/source/format", '3.0 (native)')
       create_file("#{config[:debian_directory]}/compat", '9')
       create_file(".gitignore", ".puppler.workdir\nmodules\n")
