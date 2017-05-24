@@ -32,8 +32,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'rainbow'
   spec.add_runtime_dependency 'r10k'
 
-  spec.add_development_dependency 'bundler', '~> 1.12'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake', '~> 10.0.0'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'yard'
   spec.add_development_dependency 'gem-release'

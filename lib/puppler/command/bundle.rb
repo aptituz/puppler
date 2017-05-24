@@ -4,7 +4,14 @@ require 'tempfile'
 module Puppler
   class Command
     # puppler command: bundle puppet modules in the current project
-    # calls the install command if no module_directories are found
+    #
+    # Basically does the following:
+    # 1. Check for module directories or run the #{Puppler::Command::Install}
+    # 2. Process the module directories one by one
+    # 2.1 Initialize a #{Pupppler::PuppetModule} object
+    # 2.2 Do orphan clones of all tags and branches
+    # 2.3 Create or update module bundle
+    # 2.4 Generate a changelog for that bundle and commit it
     class Bundle < Command
       include Puppler::Utils
       include Puppler::Utils::Git
