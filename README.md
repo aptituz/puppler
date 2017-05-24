@@ -3,7 +3,6 @@
 puppler is a tool aimed at creating git-bundles of puppet module repositories and ship
 them as a Debian package.
 
-
 ## How it works
 
 puppler is currently based on the following assumptions:

@@ -62,7 +62,7 @@ EOT
         git 'checkout', 'master'
         File.open("testfile", 'w') { |f| f.write tag_name }
         git 'add', 'testfile'
-        git 'commit', '-m', 'Change something'
+        git 'commit', '-m', "'Change something'"
         git 'tag', tag_name
       end
     end
@@ -83,7 +83,7 @@ EOT
         git 'branch', branch_name
         git 'checkout', branch_name, '-q'
         git 'add', 'testfile'
-        git 'commit', '-m', 'Change something'
+        git 'commit', '-m', "'Change something'"
       end
     end
 
